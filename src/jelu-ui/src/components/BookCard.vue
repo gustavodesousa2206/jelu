@@ -108,26 +108,26 @@ const currentTimestamp = ObjectUtils.timestamp()
 
 <template>
   <div
-    class="card card-sm bg-base-100 shadow-2xl shadow-base-300"
+    class="card card-sm bg-base-100 shadow-2xl shadow-base-300 book-card-hover"
   >
     <div>
       <router-link
         v-if="book.id != null"
         :to="{ name: 'book-detail', params: { bookId: book.id } }"
       >
-        <figure>
+        <figure class="book-card-figure">
           <img
             v-if="book.book.image"
             :src="'/files/' + book.book.image + '?timestamp=' + currentTimestamp"
             alt="cover image"
-            class="object-fill"
+            class="object-fill book-card-img"
             :class="props.size === 'xl' ? 'h-96' : 'h-72'"
           >
           <img
             v-else
             src="../assets/placeholder_asset.jpg"
             alt="cover placeholder"
-            class="h-72 object-fill"
+            class="h-72 object-fill book-card-img"
           >
         </figure>
       </router-link>
@@ -135,19 +135,19 @@ const currentTimestamp = ObjectUtils.timestamp()
         v-else
         :to="{ name: 'book-reviews', params: { bookId: book.book.id } }"
       >
-        <figure>
+        <figure class="book-card-figure">
           <img
             v-if="book.book.image"
             :src="'/files/' + book.book.image"
             alt="cover image"
-            class="object-fill"
+            class="object-fill book-card-img"
             :class="props.size === 'xl' ? 'h-96' : 'h-72'"
           >
           <img
             v-else
             src="../assets/placeholder_asset.jpg"
             alt="cover placeholder"
-            class="h-72 object-fill"
+            class="h-72 object-fill book-card-img"
           >
         </figure>
       </router-link>
